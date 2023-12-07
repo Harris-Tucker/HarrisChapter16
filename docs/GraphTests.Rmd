@@ -1,0 +1,37 @@
+---
+title: "Graphing"
+author: "Tucker Harris"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(TuckerHarrisFlagWeather)
+```
+
+## Graphing minimum temperature to snow
+
+```{r}
+data("Flagstaff_Weather")
+```
+
+```{r}
+
+ggplot( data = Flagstaff_Weather, aes(x = TMIN, y = SNOW) ) +
+  geom_line() +
+  labs( title = 'Flagstaff minimum weather and snowfall' ) +
+  labs( x = 'Minimum temperature', y = 'Snowfall (in)' )
+
+```
+
+
+```{r}
+ggplot( data = Flagstaff_Weather, aes(x = TMAX, y = PRCP) ) +
+  geom_point() +
+  labs( title = 'Flagstaff maximum temperature to precipitation') +
+  labs( x = 'Maximum Temperature', y = 'Precipitation (in)' )
+```
+
+
